@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <h2>ShopEase</h2>
+    <a href="/">Home</a>
+</nav>
+
+<div class="container">
+    <h1>My Orders</h1>
+
+    {% for order in orders %}
+    <div class="cart-item">
+        <h3>Order #{{ order.id }}</h3>
+        <p>Total: ₹{{ order.total }}</p>
+        <p>Status: {{ order.status }}</p>
+        <p>Date: {{ order.order_date }}</p>
+    </div>
+    {% else %}
+    <p>No orders found.</p>
+    {% endfor %}
+</div>
+</body>
+</html>
